@@ -23,26 +23,42 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Home", user_path(current_user), class: 'nav-link text-dark' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Users', users_path, class: 'nav-link text-dark' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Books', books_path, class: 'nav-link text-dark' %>
-          </li>
-          <li class="nav-item">
-          <%= link_to 'Log out', homes_top_path, method: :delete, class: 'nav-link text-dark' %>
-          </li>
+            <li class="nav-item">
+              <%= link_to "Bookers", new_user_session_path, class: 'nav-link text-dark' %>
+            </li>  
+            <li class="nav-item">
+              <%= link_to "Home", user_path(current_user), class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Users', users_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Books', books_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+            <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+            </li>
 
           <% else %>
-          <li class="nav-item">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
           </li>
           <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+            <%= link_to "Bookers", root_path, class: 'nav-link text-dark' %>
+          </li>          
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: 'nav-link text-dark' %>
           </li>
+          <li class="nav-item">
+            <%= link_to "About", homes_about_path, class: 'nav-link text-dark' %>
+          </li>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-dark' %>
+          </li>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
+          </li>
+
           <% end %>
           </ul>
         </div>
@@ -52,23 +68,12 @@
   <main class="mb-auto">
   <%= yield %>
   </main>
-  <footer class="bg-dark text-white pt-5 pb-4">
-    <div class="container">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <p>善良な市民同士で無差別に食欲を煽るSNS</p>
-          <%= image_tag('logo-white.png') %>
-        </div>
-        <div class="col-md-8">
-          <h6 class="text-white mt-2 mb-3">Link</h6>
-          <ul class="p-0 list-unstyled">
-            <li>
-              <a href="" title="About" class="text-white-50">会社概要</a>
-            </li>
-            <li>
-              <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
-            </li>
-          </ul>
+  <footer>
+    <div class= "container mt-5">
+      <div class="row"
+
+        <div class="col text-center"> 
+          <p>CopyRight Infratop.inc</P>
         </div>
       </div>
     </div>
