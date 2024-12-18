@@ -1,22 +1,68 @@
-<!-- ユーザーの一覧 -->
+
+<div class="container">
+<div class="row">
+<div class="col-3">
+<!-- ユーザーの詳細 -->
+<div>
+  <h2>User info</h2>
+  <%= image_tag @user.get_profile_image(100,100) %>
 
 <table>
-<thead>
-  <tr>
-    <th>image</th>
-    <th>name</th>
-    <th colspan="1"></th>
-  </tr>
-</thead>
-<tbody>
-  <% @users.each do |user| %>
+  <tbody>
     <tr>
-      <td><%= image_tag user.get_profile_image(100, 100) %></td>
-      <td><%= user.name %></td>
-      <td><%= link_to "show", user_path(user.id) %></td>
+      <th>name</th>
+      <th><%= @user.name %></th>
     </tr>
-  <% end %>
-</tbody>
+    <tr>
+      <th>introduction</th>
+      <th></th>
+    </tr>
+  </tbody>
 </table>
+<%= button_to 'Edit User', edit_user_path(current_user), method: :get, class: 'btn btn-primary' %>
+</div>
+
+
+
+      <%= form_with model: @book do |f| %>
+        <h1>New book</h1>
+        <h6>Title</h6>
+        <%= f.text_field :title %>
+        
+        <h6>Option</h6>
+        <%= f.text_area :body %>
+        
+        <br>
+        <%= f.submit 'Create Book' %>
+      <% end %>
+    </div>
+    
+
+
+    <div class="col-8 offset-1">
+        <!-- ユーザーの一覧 -->
+        <table>
+        <thead>
+          <tr>
+           <h1>Users</h1>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= image_tag user.get_profile_image(100, 100) %></td>
+              <td><%= user.name %></td>
+              <td><%= link_to "show", user_path(user.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+
 
 

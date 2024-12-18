@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
   get 'homes/about'
   root to:'homes#top'
 
