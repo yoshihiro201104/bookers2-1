@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @books = @user.books
-    @profile_image = @user.get_profile_image(100, 100) 
+    @profile_image_url = @user.get_profile_image_url(100, 100)
     @book = Book.new
   end
 

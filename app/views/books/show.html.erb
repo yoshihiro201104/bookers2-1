@@ -5,7 +5,7 @@
 <!-- ユーザーの詳細 -->
 <div>
   <h2>User info</h2>
-  <%= image_tag @user.get_profile_image(100,100) %>
+  <%= image_tag @user.get_profile_image_url(100,100) %>
 
 <table>
   <tbody>
@@ -36,4 +36,29 @@
         <%= f.submit 'Create Book' %>
       <% end %>
     </div>
+    
+    <!-- ユーザーの投稿一覧 -->
+    <div class="col-8 offset-1">
+    <table>
+      <thead>
+        <tr>
+        <h1>Books</h1>
+        <th colspan="1"></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+      </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= link_to(image_tag(book.user.get_profile_image_url(100, 100)), user_path(book.user)) if book.user.present? %></td>
+          <td><%= link_to(book.title, book_path(book)) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    
     

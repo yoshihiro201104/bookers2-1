@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   def new
-    @book = Books.new
+    @book = Book.new
   end
 
     # 投稿データの保存
@@ -14,13 +14,14 @@ class BooksController < ApplicationController
 
     def show
       @book = Book.find(params[:id])
-      # @profile_image = @user.get_profile_image(100, 100) 
+  
       @user = @book.user
 
     end
 
     def index
-      @books = Book.all
+      @user = current_user
+      @books = Book.all.includes(:user) # Bookとそれに紐づくUser情報を取得
     end
     
     private
