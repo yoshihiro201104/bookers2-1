@@ -23,6 +23,28 @@ class BooksController < ApplicationController
       @user = current_user
       @books = Book.all.includes(:user) # Bookとそれに紐づくUser情報を取得
     end
+
+    def edit
+      @book = Book.find(params[:id])
+    end
+
+
+      def update
+        @book = Book.find(params[:id])
+        if @book.update(book_params)
+          redirect_to book_path(@book.id), notice: 'Profile updated successfully'
+        else
+          render :edit
+        end
+      end
+      
+      def destroy
+        @book = Book.find(params[:id])
+        @book.destroy
+        redirect_to books_path
+      end
+
+
     
     private
 

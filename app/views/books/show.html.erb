@@ -51,16 +51,20 @@
 
         <tr>
         <td><%= image_tag @book.user.get_profile_image_url(100, 100) %><br>
-        <%= @book.user.name %></td>
+        <%= link_to @book.user.name, user_path(@book.user) %>
 
-        <td><%= @book.title %></td>
+        <td><%= link_to @book.title, book_path(@book) %></td>
         <td><%= @book.body %></td>
         <td>
-          <%= link_to 'Edit', user_path(@book), class: 'btn btn-primary' %>
-          
+          <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %>          
+        </td>
+        <td>
+        <%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
         </tr>
 
+
+        
     </tbody>
     </table>
     </div>

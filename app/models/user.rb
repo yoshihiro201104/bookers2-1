@@ -16,8 +16,8 @@ class User < ApplicationRecord
   end
 
   # Strong Parametersを使用してintroduction属性を許可
-  private
-  def user_params
-    params.require(:user).permit(:introduction)
-  end
+  # private
+  # def user_params
+    # params.require(:user).permit(:introduction)
+  # end
 end
