@@ -23,6 +23,7 @@ class BooksController < ApplicationController
       @user = current_user
       @books = Book.all.includes(:user) # Bookとそれに紐づくUser情報を取得
       @book = Book.new
+   
     end
 
     def edit
