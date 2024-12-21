@@ -1,14 +1,18 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 
 <div class="container">
 <div class="row">
-<div class="col-3">
+<div class="col-md-3">
 <!-- ユーザーの詳細 -->
 <%= render 'shared/userbook', user:@user, book:@book %>
 </div>
 
 
     <!-- 本の詳細 -->
-    <div class="col-8 offset-1">
+    <div class="col-md-8 offset-1">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -20,16 +24,16 @@
     <tbody>
 
         <tr>
-        <td><%= image_tag @book.user.get_profile_image_url(100, 100) %><br>
-        <%= link_to @book.user.name, user_path(@book.user) %>
+        <td><%= image_tag @book2.user.get_profile_image_url(100, 100) %><br>
+        <%= link_to @book2.user.name, user_path(@book2.user) %>
 
-        <td><%= link_to @book.title, book_path(@book) %></td>
-        <td><%= @book.body %></td>
+        <td><%= link_to @book2.title, book_path(@book2) %></td>
+        <td><%= @book2.body %></td>
         <td>
-          <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %>          
+          <%= link_to 'Edit', edit_book_path(@book2), class: 'btn btn-primary' %>          
         </td>
         <td>
-        <%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <%= link_to 'Destroy', book_path(@book2), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
         </tr>
 

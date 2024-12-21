@@ -1,3 +1,14 @@
+<!-- ログイン成功時のフラッシュメッセージを表示 -->
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+<!-- サインアップ成功時のフラッシュメッセージを設定 -->
+<div>
+<% flash[:notice] = 'Welcome! You have signed up successfully.' %>
+</div>
+
+
 <div class="container">
 <div class="row">
 <div class="col-md-3">

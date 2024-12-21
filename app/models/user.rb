@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
   has_many :books
+
+
+
   
   def get_profile_image_url(width, height)
     unless profile_image.attached?
@@ -15,9 +18,5 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  # Strong Parametersを使用してintroduction属性を許可
-  # private
-  # def user_params
-    # params.require(:user).permit(:introduction)
-  # end
+
 end
