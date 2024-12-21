@@ -29,12 +29,15 @@
 
         <td><%= link_to @book2.title, book_path(@book2) %></td>
         <td><%= @book2.body %></td>
+        
+        <% if @user.id == @book2.user.id %>
         <td>
           <%= link_to 'Edit', edit_book_path(@book2), class: 'btn btn-primary' %>          
         </td>
         <td>
         <%= link_to 'Destroy', book_path(@book2), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </td>
+        <% end %>
         </tr>
 
 
